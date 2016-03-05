@@ -1,26 +1,32 @@
 package jp.co.cam.net.dao;
 
-import jp.co.cam.net.entity.Reservation;
+import jp.co.cam.net.entity.Report;
 import org.seasar.doma.Dao;
+import org.seasar.doma.Delete;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @ConfigAutowireable
 @Dao
-public interface ReservationDao {
+public interface ReportDao {
 
     @Select
-    List<Reservation> selectAll();
+    List<Report> selectAll();
 
     @Select
-    List<Reservation> selectByName(String name);
+    List<Report> selectByTerrestrialDate(Date terrestrialDate);
 
     @Insert
     @Transactional
-    int insert(Reservation reservation);
+    int insert(Report reservation);
+
+    @Delete
+    @Transactional
+    int delete(Report reservation);
 
 }

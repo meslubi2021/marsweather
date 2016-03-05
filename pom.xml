@@ -41,6 +41,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.seasar.doma.boot</groupId>
 			<artifactId>doma-spring-boot-starter</artifactId>
 			<version>1.0.1</version>

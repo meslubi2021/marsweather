@@ -1,29 +1,30 @@
 package jp.co.cam.net.controller;
 
 
-import jp.co.cam.net.dao.ReservationDao;
-import jp.co.cam.net.entity.Reservation;
+import jp.co.cam.net.dao.ReportDao;
+import jp.co.cam.net.entity.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
-public class MaasApiController {
+public class MarsApiRestController {
 
     @Autowired
-    ReservationDao reservationDao;
+    ReportDao reportDao;
 
     @RequestMapping(path = "/")
-    List<Reservation> all() {
-        return reservationDao.selectAll();
+    List<Report> all() {
+        return reportDao.selectAll();
     }
 
-    @RequestMapping(path = "/", params = "name")
-    List<Reservation> name(@RequestParam String name) {
-        return reservationDao.selectByName(name);
+    @RequestMapping(path = "/", params = "date")
+    List<Report> date(@RequestParam Date date) {
+        return reportDao.selectByTerrestrialDate(date);
     }
 
 }

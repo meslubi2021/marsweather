@@ -1,13 +1,15 @@
 package jp.co.cam.net;
 
-import jp.co.cam.net.dao.ReservationDao;
-import jp.co.cam.net.entity.Reservation;
+import jp.co.cam.net.dao.ReportDao;
+import jp.co.cam.net.entity.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -18,15 +20,25 @@ public class Application {
     }
 
     @Autowired
-    ReservationDao reservationDao;
+    ReportDao reportDao;
 
-    // 起動時にReservationDao#insertで初期データを投入する
     @Bean
     CommandLineRunner runner() {
-        return args -> Arrays.asList("spring", "spring boot", "spring cloud", "doma").forEach(s -> {
-            Reservation r = new Reservation();
-            r.name = s;
-            reservationDao.insert(r);
+
+        final SimpleDateFormat strToDate = new SimpleDateFormat("yyyy/MM/dd");
+
+        return (args) -> Arrays.asList("2016/03/01", "2016/03/02").forEach(date -> {
+
+            Report report = new Report();
+            try {
+                report.terrestrialDate = strToDate.parse(date);
+                reportDao.delete(report);
+                reportDao.insert(report);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
         });
     }
 
