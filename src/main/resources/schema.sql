@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS reservation (
+  id   SERIAL,
+  NAME VARCHAR(50)
+);
