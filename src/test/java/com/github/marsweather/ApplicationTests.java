@@ -1,4 +1,4 @@
-package jp.co.cam.net;
+package com.github.marsweather;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,0 +1,26 @@
+<!--/*-----------------------------------------------------------------------*\
+ * Thymeleaf HTML
+ * 役割: ThymeleafはJavaのテンプレートエンジンライブラリです。XML/XHTML/HTML5で書かれたテンプレートを変換して、アプリケーションのデータやテキストを表示することができます。
+ * note: Thymeleaf, 「Tutorial: Using Thymeleaf (ja)」, http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf_ja.html
+ *------------------------------------------------------------------------*/-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Mars Weather</title>
+</head>
+<body>
+<!--/* note: Thymeleaf, 「条件の評価」, http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf_ja.html#%E6%9D%A1%E4%BB%B6%E3%81%AE%E8%A9%95%E4%BE%A1 */-->
+<div th:if="${reports == null}">
+    <span>レポートが見つかりませんでした</span>
+</div>
+<!--/* note: Thymeleaf, 「繰り返し処理」, http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf_ja.html#%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%97%E5%87%A6%E7%90%86 */-->
+<dl th:each="report : ${reports}">
+    <div th:if="${report != null}">
+        <dt>Terrestrial Date (Earth Date)</dt>
+        <!--/* note: Thymeleaf, 「th:text とテキストの外部化」, http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf_ja.html#thtext-%E3%81%A8%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%81%AE%E5%A4%96%E9%83%A8%E5%8C%96 */-->
+        <dd th:text="${report.terrestrialDate}"></dd>
+    </div>
+</dl>
+</body>
+</html>

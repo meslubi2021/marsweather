@@ -1,4 +1,5 @@
 SELECT
+  version,
   terrestrial_date,
   sol,
   ls,
@@ -14,8 +15,10 @@ SELECT
   atmo_opacity,
   season,
   sunrise,
-  sunset
+  sunset,
+  add_dttm,
+  upd_dttm
 FROM
-  report
+  d_report
 ORDER BY
   terrestrial_date DESC

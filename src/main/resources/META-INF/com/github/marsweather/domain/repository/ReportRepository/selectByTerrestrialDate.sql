@@ -1,4 +1,5 @@
 SELECT
+  version,
   terrestrial_date,
   sol,
   ls,
@@ -14,9 +15,11 @@ SELECT
   atmo_opacity,
   season,
   sunrise,
-  sunset
+  sunset,
+  add_dttm,
+  upd_dttm
 FROM
-  report
+  d_report
 WHERE
 -- Doma 2, 「式言語」, http://doma.readthedocs.org/ja/stable/expression/
 /*%if terrestrialDate != null */
