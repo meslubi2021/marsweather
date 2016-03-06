@@ -1,6 +1,6 @@
 # Spring Boot x Doma 2 x PostgreSQL x Thymeleaf
 
-![Web Big Picture](img/mvc.png)
+![Web Big Picture](img/mvc_archi_logo.png)
 
 ## Web アプリケーションの構成
 
