@@ -41,11 +41,13 @@ public class Application {
             final List<DReport> reportToday = reportService.getReportsByTerrestrialDate(today);
 
             // Delete を実行する (Doma 2 Entity -> Service -> Repository (DAO) -> PostgreSQL)
-            reportToday.forEach(report -> {
-                if (report != null) {
-                    reportService.removeReport(report);
-                }
-            });
+            if (reportToday != null) {
+                reportToday.forEach(report -> {
+                    if (report != null) {
+                        reportService.removeReport(report);
+                    }
+                });
+            }
 
             // Entity を作成する
             DReport reportTodayNew = new DReport();
