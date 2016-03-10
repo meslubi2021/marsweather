@@ -94,7 +94,7 @@ public class MaasApiService {
                 .queryParam(Format.key, Format.Json.VALUE);
 
         for (Tuple2<String, String> query : queries) {
-            maasApi.queryParam(query.getFirst(), query.getSecond());
+            maasApi = maasApi.queryParam(query.getFirst(), query.getSecond());
         }
 
         return maasApi.getUri();
