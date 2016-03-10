@@ -24,6 +24,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring Boot / Web アプリケーション フレームワーク -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -40,21 +41,38 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Thymeleaf / HTML テンプレート エンジン -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+		<!-- Doma 2 / O/RM -->
 		<dependency>
 			<groupId>org.seasar.doma.boot</groupId>
 			<artifactId>doma-spring-boot-starter</artifactId>
 			<version>1.0.1</version>
 		</dependency>
 
+		<!-- PostgreSQL / JDBC コネクタ -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1206-jdbc42</version>
+		</dependency>
+
+		<!-- Jersey / HTTP Client -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.22.2</version>
+		</dependency>
+
+		<!-- Jackson / JSON パーサー -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.22.2</version>
 		</dependency>
 
 	</dependencies>

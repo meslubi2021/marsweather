@@ -13,6 +13,9 @@
     * PostgreSQL (SQL)
   * O/R マッパー (O/RM)
     * Doma 2 (Java)
+  * REST ライブラリ
+    * Jersey (Java)
+    * Jackson (Java)
 * バージョン コントロール システム (VCS)
   * Git
   * GitHub
@@ -75,6 +78,7 @@ pom.xml
 │                   ├── repository
 │                   │   └── ReportRepository.java
 │                   └── service
+│                       ├── MaasApiService.java
 │                       └── ReportService.java
 └── resources
     ├── META-INF
@@ -92,18 +96,19 @@ pom.xml
         └── view.html
 ```
 
-| ファイル名                   | 技術要素                   | 言語  | 説明  |
-|-----------------------------|--------------------------|-------|------|
-| pom.xml                     | Maven                    | XML   | プロジェクトに必要なパッケージの依存関係を設定する  |
-| application.properties      | Spring Boot              | Java  | Spring Boot, Doma 2 のデータベース接続先を設定する  |
-| schema.sql                  | Spring Boot, PostgreSQL  | SQL   | Spring Boot 起動時に実行される SQL。データベースにテーブルを作成する  |
-| Application.java            | Spring Boot              | Java  | Spring Boot を起動する  |
-| MarsApiViewController.java  | Spring Boot              | Java  | ブラウザに入力された URL に処理を紐付ける  |
-| ReportService.java          | Spring Boot              | Java  | データベースのトランザクションを制御する  |
-| ReportRepository.java       | Spring Boot, Doma 2      | Java  | データベースに CRUD する |
-| DReport.java                | Doma 2                   | Java  | データベースから読み書きする結果を格納する  |
-| selectByTerrestrialDate.sql | Doma 2, PostgreSQL       | SQL   | PostgreSQL の 検索 SQL |
-| view.html                   | Thymeleaf                | HTML  | 画面  |
+| ファイル名                   | 技術要素                             | 言語  | 説明  |
+|-----------------------------|------------------------------------|-------|------|
+| pom.xml                     | Maven                              | XML   | プロジェクトに必要なパッケージの依存関係を設定する  |
+| application.properties      | Spring Boot                        | Java  | Spring Boot, Doma 2 のデータベース接続先を設定する  |
+| schema.sql                  | Spring Boot, PostgreSQL            | SQL   | Spring Boot 起動時に実行される SQL。データベースにテーブルを作成する  |
+| Application.java            | Spring Boot                        | Java  | Spring Boot を起動する  |
+| MarsApiViewController.java  | Spring Boot                        | Java  | ブラウザに入力された URL に処理を紐付ける  |
+| MaasApiService.java         | Spring Boot, Jersey, Jackson, HTTP | Java  | MAAS API にリクエストを送信し，データを取得する  |
+| ReportService.java          | Spring Boot                        | Java  | データベースのトランザクションを制御する  |
+| ReportRepository.java       | Spring Boot, Doma 2                | Java  | データベースに CRUD する |
+| DReport.java                | Doma 2                             | Java  | データベースから読み書きする結果を格納する  |
+| selectByTerrestrialDate.sql | Doma 2, PostgreSQL                 | SQL   | PostgreSQL の 検索 SQL |
+| view.html                   | Thymeleaf                          | HTML  | 画面  |
 
 
 ## Web
@@ -139,3 +144,5 @@ pom.xml
 1. Spring Boot Reference Guide, http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 1. Doma 2 User Documentation, http://doma.readthedocs.org/ja/stable/
 1. Tutorial: Using Thymeleaf (ja), http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf_ja.html
+1. Jersey Client API, https://jersey.java.net/documentation/latest/client.html
+1. Jersey - Jackson, https://jersey.java.net/documentation/latest/media.html#json.jackson
